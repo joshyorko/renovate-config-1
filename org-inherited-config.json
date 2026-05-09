@@ -18,7 +18,7 @@
     ],
     "packageRules": [
         {
-            "description": "Dead upstream repo — git ls-remote fails and causes Renovate to exit non-zero",
+            "description": ["Dead upstream repo — git ls-remote fails and causes Renovate to exit non-zero"],
             "matchPackageNames": ["https://github.com/pcostanza/closer-mop.git"],
             "enabled": false
         }
