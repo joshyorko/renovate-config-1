@@ -4,6 +4,8 @@
         "config:best-practices",
         ":semanticCommits"
     ],
+    "schedule": ["* 0-3 * * 1"],
+    "rebaseWhen": "never",
     "customManagers": [
         {
             "customType": "regex",
@@ -17,6 +19,13 @@
         }
     ],
     "packageRules": [
+        {
+            "description": ["Automerge chore dep updates (digest, pin, patch, minor) when CI passes"],
+            "matchUpdateTypes": ["digest", "pin", "patch", "minor"],
+            "automerge": true,
+            "automergeType": "pr",
+            "automergeStrategy": "squash"
+        },
         {
             "description": ["Dead upstream repo — git ls-remote fails and causes Renovate to exit non-zero"],
             "matchPackageNames": ["https://github.com/pcostanza/closer-mop.git"],
