@@ -30,6 +30,16 @@
             "description": ["Dead upstream repo — git ls-remote fails and causes Renovate to exit non-zero"],
             "matchPackageNames": ["https://github.com/pcostanza/closer-mop.git"],
             "enabled": false
+        },
+        {
+            "description": ["Group all projectbluefin/actions SHA updates into one atomic PR"],
+            "matchManagers": ["github-actions"],
+            "matchDepNames": ["/projectbluefin\/actions/"],
+            "groupName": "projectbluefin/actions",
+            "automerge": true,
+            "automergeType": "pr",
+            "automergeStrategy": "squash",
+            "labels": ["chore/deps", "automerge"]
         }
     ]
 }
