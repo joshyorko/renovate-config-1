@@ -4,7 +4,6 @@
         "config:best-practices",
         ":semanticCommits"
     ],
-    "schedule": ["* 0-3 * * 1"],
     "rebaseWhen": "never",
     "customManagers": [
         {
@@ -34,7 +33,7 @@
         {
             "description": ["Group all projectbluefin/actions SHA updates into one atomic PR"],
             "matchManagers": ["github-actions"],
-            "matchDepNames": ["/projectbluefin\/actions/"],
+            "matchDepNames": ["/projectbluefin\\/actions/"],
             "groupName": "projectbluefin/actions",
             "automerge": true,
             "automergeType": "pr",
