@@ -4,7 +4,7 @@
         "config:best-practices",
         ":semanticCommits"
     ],
-    "rebaseWhen": "never",
+    "rebaseWhen": "conflicted",
     "vulnerabilityAlerts": {
         "enabled": false
     },
@@ -33,6 +33,16 @@
             "description": ["Dead upstream repo — git ls-remote fails and causes Renovate to exit non-zero"],
             "matchPackageNames": ["https://github.com/pcostanza/closer-mop.git"],
             "enabled": false
+        },
+        {
+            "description": ["Group non-major GitHub Actions updates into one automerged PR to reduce noise"],
+            "matchManagers": ["github-actions"],
+            "matchUpdateTypes": ["digest", "pin", "patch", "minor"],
+            "groupName": "github-actions (non-major)",
+            "automerge": true,
+            "automergeType": "pr",
+            "automergeStrategy": "squash",
+            "labels": ["chore/deps", "automerge"]
         },
         {
             "description": ["Group all projectbluefin/actions SHA updates into one atomic PR"],
